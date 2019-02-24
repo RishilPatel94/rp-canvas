@@ -31,10 +31,6 @@ static CGLineCap RPPencil_PointShape = kCGLineCapRound;
 -(void)changePencilColor:(UIColor *)clr{
     _pencilColor = clr;
 }
-// MARK:- retuen pencil color
--(UIColor *)currentPencilColor{
-    return _pencilColor;
-}
 // MARK:- change pencil width
 -(void)setPencilWidth:(float)enterWidth{
     _pencilWidth = enterWidth;
