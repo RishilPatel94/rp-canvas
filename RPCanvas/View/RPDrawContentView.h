@@ -2,7 +2,7 @@
 //  RPDrawContentView.h
 //  RPCanvas
 //
-//  Created by Alpesh Patel on 24/02/19.
+//  Created by Rishil Patel on 24/02/19.
 //  Copyright © 2019 Rishil Patel. All rights reserved.
 //
 
