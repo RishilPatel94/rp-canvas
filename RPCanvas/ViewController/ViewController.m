@@ -9,9 +9,10 @@
 #import "ViewController.h"
 #import "RPDrawView.h"
 #import "ColorButton.h"
+#import "RPDrawContentView.h"
 // Declare for pencil width, pencil pointshape and other constant value for this class only because small app.
-static float RPPencil_width = 16;
-static CGLineCap RPPencil_PointShape = kCGLineCapRound;
+//static float RPPencil_width = 16;
+//static CGLineCap RPPencil_PointShape = kCGLineCapRound;
 static NSString *AppTitle = @"RPCanvas";
 static NSString *TitleClear = @"CLEAR";
 static NSString *TitleRedBtn = @"R";
@@ -20,12 +21,11 @@ static NSString *TitleBlueBtn = @"B";
 @interface ViewController (){
     CGPoint RPpencil_PrevPoint;
     UIColor *colorPencil;
+    IBOutlet RPDrawContentView *drawView;
 }
-@property (weak, nonatomic) IBOutlet RPDrawView *drawView;
 @property (weak, nonatomic) IBOutlet ColorButton *btnRed;
 @property (weak, nonatomic) IBOutlet ColorButton *btnGreen;
 @property (weak, nonatomic) IBOutlet ColorButton *btnBlue;
-
 @end
 
 @implementation ViewController
@@ -37,14 +37,15 @@ static NSString *TitleBlueBtn = @"B";
 // MARK:- Button clear action [clear drawing]
 -(IBAction)action_Clear:(UIBarButtonItem *)sender
 {
-    [_drawView clearCanvas];
+    [drawView clearCanvas];
 }
 // MARK:- Button set color and selected border
 -(IBAction)action_Color:(ColorButton *)sender{
-    colorPencil = sender.backgroundColor;
-    if(colorPencil == [UIColor redColor]){
+    [drawView changePencilColor:sender.backgroundColor];
+    UIColor* currentPencilClr = [drawView currentPencilColor];
+    if(currentPencilClr == [UIColor redColor]){
         [self selectionRed];
-    }else if(colorPencil == [UIColor greenColor]){
+    }else if(currentPencilClr == [UIColor greenColor]){
         [self selectionGreen];
     }else{
         [self selectionBlue];
@@ -57,43 +58,11 @@ static NSString *TitleBlueBtn = @"B";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-// MARK:- Start Touch event for drawing
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    RPpencil_PrevPoint = [touch locationInView:self.view];
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [_drawView.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    CGContextSetLineCap(context, RPPencil_PointShape);
-    CGContextSetLineWidth(context, RPPencil_width);
-    CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), colorPencil.CGColor);
-    CGContextMoveToPoint(context, RPpencil_PrevPoint.x, RPpencil_PrevPoint.y);
-    CGContextAddLineToPoint(context, RPpencil_PrevPoint.x, RPpencil_PrevPoint.y);
-    CGContextStrokePath(context);
-    _drawView.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-}
-// MARK:- End Touch event and point
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [touches anyObject];
-    CGPoint currentPoint = [touch locationInView:self.view];
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [_drawView.image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextMoveToPoint(context, RPpencil_PrevPoint.x, RPpencil_PrevPoint.y);
-    CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y);
-    CGContextSetLineCap(context, RPPencil_PointShape);
-    CGContextSetLineWidth(context, RPPencil_width );
-    CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), colorPencil.CGColor);
-    CGContextStrokePath(context);
-    _drawView.image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    RPpencil_PrevPoint = currentPoint;
-}
+// MARK:- My View Controller's Initial changes
 -(void)setInitialUI{
     self.title = AppTitle;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:TitleClear style:UIBarButtonItemStylePlain target:self action:@selector(action_Clear:)];
-    colorPencil = [UIColor redColor];
+    [drawView setPencilWidth:16];
     [_btnRed setColor_Shadow:[UIColor redColor] text:TitleRedBtn withSelectedBorder:YES];
     [_btnGreen setColor_Shadow:[UIColor greenColor] text:TitleGreenBtn withSelectedBorder:NO];
     [_btnBlue setColor_Shadow:[UIColor blueColor] text:TitleBlueBtn withSelectedBorder:NO];

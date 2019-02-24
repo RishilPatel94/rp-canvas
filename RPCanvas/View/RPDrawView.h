@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RPDrawView : UIImageView
 -(void)clearCanvas;
+-(instancetype)init;
 @end
 
 NS_ASSUME_NONNULL_END

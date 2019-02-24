@@ -13,6 +13,9 @@
 {
     [super awakeFromNib];
 }
+-(instancetype)init{
+    return [super init];
+}
 // MARK:- Clear Image Imageview
 -(void)clearCanvas{
     self.image = nil;
