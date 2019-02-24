@@ -13,10 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RPDrawContentView : UIView
 {
     CGPoint RPpencil_PrevPoint;
-    UIColor *colorPencil;
     RPDrawView *drawView;
-    float RPPencil_width;
 }
+@property (nonatomic) IBInspectable UIColor *pencilColor;
+@property (nonatomic) IBInspectable float pencilWidth;
 -(void)changePencilColor:(UIColor *)clr;
 -(UIColor *)currentPencilColor;
 -(void)clearCanvas;

@@ -7,25 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "RPDrawView.h"
-#import "ColorButton.h"
 #import "RPDrawContentView.h"
-// Declare for pencil width, pencil pointshape and other constant value for this class only because small app.
-//static float RPPencil_width = 16;
-//static CGLineCap RPPencil_PointShape = kCGLineCapRound;
 static NSString *AppTitle = @"RPCanvas";
 static NSString *TitleClear = @"CLEAR";
-static NSString *TitleRedBtn = @"R";
-static NSString *TitleGreenBtn = @"G";
-static NSString *TitleBlueBtn = @"B";
 @interface ViewController (){
-    CGPoint RPpencil_PrevPoint;
-    UIColor *colorPencil;
     IBOutlet RPDrawContentView *drawView;
 }
-@property (weak, nonatomic) IBOutlet ColorButton *btnRed;
-@property (weak, nonatomic) IBOutlet ColorButton *btnGreen;
-@property (weak, nonatomic) IBOutlet ColorButton *btnBlue;
 @end
 
 @implementation ViewController
@@ -39,18 +26,6 @@ static NSString *TitleBlueBtn = @"B";
 {
     [drawView clearCanvas];
 }
-// MARK:- Button set color and selected border
--(IBAction)action_Color:(ColorButton *)sender{
-    [drawView changePencilColor:sender.backgroundColor];
-    UIColor* currentPencilClr = [drawView currentPencilColor];
-    if(currentPencilClr == [UIColor redColor]){
-        [self selectionRed];
-    }else if(currentPencilClr == [UIColor greenColor]){
-        [self selectionGreen];
-    }else{
-        [self selectionBlue];
-    }
-}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 }
@@ -62,27 +37,5 @@ static NSString *TitleBlueBtn = @"B";
 -(void)setInitialUI{
     self.title = AppTitle;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:TitleClear style:UIBarButtonItemStylePlain target:self action:@selector(action_Clear:)];
-    [drawView setPencilWidth:16];
-    [_btnRed setColor_Shadow:[UIColor redColor] text:TitleRedBtn withSelectedBorder:YES];
-    [_btnGreen setColor_Shadow:[UIColor greenColor] text:TitleGreenBtn withSelectedBorder:NO];
-    [_btnBlue setColor_Shadow:[UIColor blueColor] text:TitleBlueBtn withSelectedBorder:NO];
-}
-// MARK:- Red selection flag true
--(void)selectionRed{
-    [_btnRed setSelectedBorder:YES];
-    [_btnGreen setSelectedBorder:NO];
-    [_btnBlue setSelectedBorder:NO];
-}
-// MARK:- Green selection flag true
--(void)selectionGreen{
-    [_btnRed setSelectedBorder:NO];
-    [_btnGreen setSelectedBorder:YES];
-    [_btnBlue setSelectedBorder:NO];
-}
-// MARK:- Blue selection flag true
--(void)selectionBlue{
-    [_btnRed setSelectedBorder:NO];
-    [_btnGreen setSelectedBorder:NO];
-    [_btnBlue setSelectedBorder:YES];
 }
 @end

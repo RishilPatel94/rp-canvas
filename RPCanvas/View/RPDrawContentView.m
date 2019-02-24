@@ -7,6 +7,7 @@
 //
 #import "RPDrawContentView.h"
 static CGLineCap RPPencil_PointShape = kCGLineCapRound;
+
 @implementation RPDrawContentView
 - (void)awakeFromNib
 {
@@ -17,7 +18,6 @@ static CGLineCap RPPencil_PointShape = kCGLineCapRound;
 -(void)confuguration{
     drawView = [[RPDrawView alloc]init];
     [self addSubview:drawView];
-    colorPencil = [UIColor redColor];
 }
 // MARK:- set drwchild framwe
 -(void)setFrames{
@@ -29,15 +29,15 @@ static CGLineCap RPPencil_PointShape = kCGLineCapRound;
 }
 // MARK:- set pencil color
 -(void)changePencilColor:(UIColor *)clr{
-    colorPencil = clr;
+    _pencilColor = clr;
 }
 // MARK:- retuen pencil color
 -(UIColor *)currentPencilColor{
-    return colorPencil;
+    return _pencilColor;
 }
 // MARK:- change pencil width
 -(void)setPencilWidth:(float)enterWidth{
-    RPPencil_width = enterWidth;
+    _pencilWidth = enterWidth;
 }
 // MARK:- clear drawing data on view
 -(void)clearCanvas{
@@ -51,8 +51,8 @@ static CGLineCap RPPencil_PointShape = kCGLineCapRound;
     CGContextRef context = UIGraphicsGetCurrentContext();
     [drawView.image drawInRect:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     CGContextSetLineCap(context, RPPencil_PointShape);
-    CGContextSetLineWidth(context, RPPencil_width);
-    CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), colorPencil.CGColor);
+    CGContextSetLineWidth(context, _pencilWidth);
+    CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), _pencilColor.CGColor);
     CGContextMoveToPoint(context, RPpencil_PrevPoint.x, RPpencil_PrevPoint.y);
     CGContextAddLineToPoint(context, RPpencil_PrevPoint.x, RPpencil_PrevPoint.y);
     CGContextStrokePath(context);
@@ -69,19 +69,11 @@ static CGLineCap RPPencil_PointShape = kCGLineCapRound;
     CGContextMoveToPoint(context, RPpencil_PrevPoint.x, RPpencil_PrevPoint.y);
     CGContextAddLineToPoint(context, currentPoint.x, currentPoint.y);
     CGContextSetLineCap(context, RPPencil_PointShape);
-    CGContextSetLineWidth(context, RPPencil_width );
-    CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), colorPencil.CGColor);
+    CGContextSetLineWidth(context, _pencilWidth);
+    CGContextSetStrokeColorWithColor(UIGraphicsGetCurrentContext(), _pencilColor.CGColor);
     CGContextStrokePath(context);
     drawView.image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     RPpencil_PrevPoint = currentPoint;
 }
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
-
 @end
