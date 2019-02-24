@@ -12,9 +12,9 @@
 		0C1C900322015F5100233467 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C1C900222015F5100233467 /* Assets.xcassets */; };
 		0C1C900622015F5100233467 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C1C900422015F5100233467 /* LaunchScreen.storyboard */; };
 		0C1C900922015F5100233467 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C900822015F5100233467 /* main.m */; };
-		0C1C901722015F9A00233467 /* RPDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C901222015F9A00233467 /* RPDrawView.m */; };
-		0C1C901922015F9A00233467 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1C901522015F9A00233467 /* ViewController.m */; };
-		0C608A6D222356D100BEF6B6 /* RPDrawContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C608A6B222356D100BEF6B6 /* RPDrawContentView.m */; };
+		0C608A71222365EA00BEF6B6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C608A6F222365EA00BEF6B6 /* ViewController.m */; };
+		0C608A77222365F400BEF6B6 /* RPDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C608A73222365F400BEF6B6 /* RPDrawView.m */; };
+		0C608A78222365F500BEF6B6 /* RPDrawContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C608A75222365F400BEF6B6 /* RPDrawContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +26,12 @@
 		0C1C900522015F5100233467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C1C900722015F5100233467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C1C900822015F5100233467 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0C1C901022015F9A00233467 /* RPDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPDrawView.h; sourceTree = "<group>"; };
-		0C1C901222015F9A00233467 /* RPDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPDrawView.m; sourceTree = "<group>"; };
-		0C1C901522015F9A00233467 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0C1C901622015F9A00233467 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0C608A6B222356D100BEF6B6 /* RPDrawContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPDrawContentView.m; sourceTree = "<group>"; };
-		0C608A6C222356D100BEF6B6 /* RPDrawContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPDrawContentView.h; sourceTree = "<group>"; };
+		0C608A6F222365EA00BEF6B6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0C608A70222365EA00BEF6B6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0C608A73222365F400BEF6B6 /* RPDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPDrawView.m; sourceTree = "<group>"; };
+		0C608A74222365F400BEF6B6 /* RPDrawContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPDrawContentView.h; sourceTree = "<group>"; };
+		0C608A75222365F400BEF6B6 /* RPDrawContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPDrawContentView.m; sourceTree = "<group>"; };
+		0C608A76222365F400BEF6B6 /* RPDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPDrawView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +64,8 @@
 		0C1C8FF822015F5000233467 /* RPCanvas */ = {
 			isa = PBXGroup;
 			children = (
-				0C1C900F22015F9A00233467 /* View */,
-				0C1C901422015F9A00233467 /* ViewController */,
+				0C608A72222365F400BEF6B6 /* RPDraw */,
+				0C608A6E222365EA00BEF6B6 /* ViewController */,
 				0C1C8FF922015F5000233467 /* AppDelegate.h */,
 				0C1C8FFA22015F5000233467 /* AppDelegate.m */,
 				0C1C8FFF22015F5000233467 /* Main.storyboard */,
@@ -77,24 +77,24 @@
 			path = RPCanvas;
 			sourceTree = "<group>";
 		};
-		0C1C900F22015F9A00233467 /* View */ = {
+		0C608A6E222365EA00BEF6B6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0C608A6C222356D100BEF6B6 /* RPDrawContentView.h */,
-				0C608A6B222356D100BEF6B6 /* RPDrawContentView.m */,
-				0C1C901022015F9A00233467 /* RPDrawView.h */,
-				0C1C901222015F9A00233467 /* RPDrawView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		0C1C901422015F9A00233467 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				0C1C901622015F9A00233467 /* ViewController.h */,
-				0C1C901522015F9A00233467 /* ViewController.m */,
+				0C608A6F222365EA00BEF6B6 /* ViewController.m */,
+				0C608A70222365EA00BEF6B6 /* ViewController.h */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		0C608A72222365F400BEF6B6 /* RPDraw */ = {
+			isa = PBXGroup;
+			children = (
+				0C608A73222365F400BEF6B6 /* RPDrawView.m */,
+				0C608A74222365F400BEF6B6 /* RPDrawContentView.h */,
+				0C608A75222365F400BEF6B6 /* RPDrawContentView.m */,
+				0C608A76222365F400BEF6B6 /* RPDrawView.h */,
+			);
+			path = RPDraw;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,11 +167,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C1C901722015F9A00233467 /* RPDrawView.m in Sources */,
+				0C608A71222365EA00BEF6B6 /* ViewController.m in Sources */,
+				0C608A78222365F500BEF6B6 /* RPDrawContentView.m in Sources */,
 				0C1C900922015F5100233467 /* main.m in Sources */,
-				0C608A6D222356D100BEF6B6 /* RPDrawContentView.m in Sources */,
+				0C608A77222365F400BEF6B6 /* RPDrawView.m in Sources */,
 				0C1C8FFB22015F5000233467 /* AppDelegate.m in Sources */,
-				0C1C901922015F9A00233467 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
