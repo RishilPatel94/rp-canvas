@@ -19,5 +19,9 @@ Simply add RPDraw folder or its all files into your Xcode project.
 1. Drag View object from the Object Library into your storyboard.
 
  ![pasted graphic](https://user-images.githubusercontent.com/45240621/53308622-d7d40600-3870-11e9-910d-be6116194afe.png)
+ 
+2. Set the view's class to RPDrawContentView in the Identity Inspector.
+
+
 
 
