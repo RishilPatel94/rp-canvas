@@ -24,5 +24,7 @@ Simply add RPDraw folder or its all files into your Xcode project.
 
 ![pasted graphic 1](https://user-images.githubusercontent.com/45240621/53308668-271a3680-3871-11e9-8c99-1f656cc32b4d.png)
 
+3. Customize the rp-canvas appearance in the Attributes Inspector.
+
 
 
