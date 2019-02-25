@@ -18,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) IBInspectable UIColor *pencilColor;
 @property (nonatomic) IBInspectable float pencilWidth;
 -(void)changePencilColor:(UIColor *)clr;
--(UIColor *)currentPencilColor;
 -(void)clearCanvas;
 -(void)setPencilWidth:(float)enterWidth;
 

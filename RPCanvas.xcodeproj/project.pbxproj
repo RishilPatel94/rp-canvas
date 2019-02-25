@@ -80,8 +80,8 @@
 		0C608A6E222365EA00BEF6B6 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				0C608A6F222365EA00BEF6B6 /* ViewController.m */,
 				0C608A70222365EA00BEF6B6 /* ViewController.h */,
+				0C608A6F222365EA00BEF6B6 /* ViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -89,10 +89,10 @@
 		0C608A72222365F400BEF6B6 /* RPDraw */ = {
 			isa = PBXGroup;
 			children = (
+				0C608A76222365F400BEF6B6 /* RPDrawView.h */,
 				0C608A73222365F400BEF6B6 /* RPDrawView.m */,
 				0C608A74222365F400BEF6B6 /* RPDrawContentView.h */,
 				0C608A75222365F400BEF6B6 /* RPDrawContentView.m */,
-				0C608A76222365F400BEF6B6 /* RPDrawView.h */,
 			);
 			path = RPDraw;
 			sourceTree = "<group>";
